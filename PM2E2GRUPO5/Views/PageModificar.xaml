@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E2GRUPO5.Views.PageModificar"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             NavigationPage.HasNavigationBar="False"
+             >
+
+    <ScrollView>
+        <StackLayout Margin="10,10,10,10">
+            <StackLayout BackgroundColor="Black" HorizontalOptions="Center" Padding="1">
+                <forms:SignaturePadView 
+                x:Name="PadView"
+                StrokeWidth="3"
+                CaptionText=""
+                WidthRequest="300"
+                HeightRequest="300"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Margin="25,25,25,0">
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Latitud:"></Label>
+                    <Entry x:Name="latitud" IsReadOnly="True"></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Longitud:"></Label>
+                    <Entry x:Name="longitud" IsReadOnly="True"></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Describa la ubicación:"
+                               FontAttributes="Bold"></Label>
+                    </StackLayout>
+                    <Editor x:Name="descripcion"></Editor>
+                </StackLayout>
+            </StackLayout>
+
+
+
+            <StackLayout Margin="20,30,20,30">
+                <Button x:Name="btnactualizar" Clicked="btnactualizar_Clicked"  Text="Actualizar"
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="Caption"
+                        HeightRequest="40"
+                        CornerRadius="40"/>
+
+                <Button x:Name="btneliminar" Clicked="btneliminar_Clicked"  Text="Eliminar"
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="Caption"
+                        HeightRequest="40"
+                        CornerRadius="40"/>
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

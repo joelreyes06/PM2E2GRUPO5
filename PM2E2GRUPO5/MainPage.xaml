@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E2GRUPO5.MainPage"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ScrollView>
+
+        <StackLayout Margin="10,10,10,10">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                <Frame Padding="0">
+                    <Label Text="Nueva Ubicación"
+                       HorizontalOptions="CenterAndExpand"
+                       BackgroundColor="#AF00D8"
+                       TextColor="White"                       
+                       FontAttributes="Bold"
+                       Padding="10"/>
+                </Frame>
+
+                <Frame Padding="0">
+                    <Label Text="Ubicaciones Guardadas"
+                       
+                       HorizontalOptions="CenterAndExpand"
+                       BackgroundColor="White"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       Padding="10"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnUbicaciones_Clicked"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout BackgroundColor="#AF00D8" HorizontalOptions="Center" Padding="2" Margin="0,10,0,0">
+                <Label Text="DIBUJE FIRMA" FontAttributes="Bold" TextColor="White"></Label>
+                <forms:SignaturePadView 
+                x:Name="PadView"
+                    CaptionText=""
+                    
+                StrokeWidth="3"
+                WidthRequest="300"
+                HeightRequest="300"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Margin="25,25,25,0">
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Latitud" FontAttributes="Bold" TextColor="Black"></Label>
+                    <Entry x:Name="latitud" IsReadOnly="True" ></Entry>
+                </StackLayout>
+                
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Longitud" FontAttributes="Bold" TextColor="Black"></Label>
+                    <Entry x:Name="longitud" IsReadOnly="True"></Entry>
+                </StackLayout>
+                
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Descripcion corta:"
+                               FontAttributes="Bold" TextColor="Black"></Label>
+                    </StackLayout>
+                    <Editor x:Name="descripcion"></Editor>
+                </StackLayout>
+            </StackLayout>
+
+            <!--Grabar Nota de Voz-->
+            <StackLayout Orientation="Vertical" Margin="10,20,10,0">
+                <Label Text="Grabar Nota de Voz" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black"/>
+
+                <StackLayout IsVisible="True" x:Name="ondaespacio" Orientation="Horizontal" Margin="0,0,0,0" Padding="0,0,0,0" Spacing="0">
+                    <Frame CornerRadius="10"
+                           BorderColor="Black" 
+                           Padding="0"
+                           Margin="20,0,20,0"
+                           HasShadow="False"
+                           >
+                        <StackLayout BackgroundColor="#AF00D8" Padding="10,0,10,0" Orientation="Horizontal" Spacing="0">
+                            <Label Text="AUN SIN GRABAR"
+                                   x:Name="ondaTexto"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   FontSize="Caption"
+                                   WidthRequest="300" Padding="25,0,25,0"/>
+
+
+                        </StackLayout>
+                    </Frame>
+                    
+                    <Button x:Name="btngrabarvoz" Clicked="btngrabarvoz_Clicked"  Text="Grabar Audio"
+                        BackgroundColor="#AF00D8"
+                        TextColor="White"
+                        BorderWidth="1"
+                        BorderColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="Caption"
+                        HeightRequest="40"
+                        CornerRadius="10"
+                        Margin="0,0,20,0"
+                        />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button IsVisible="False" x:Name="btndetenervoz" Clicked="btndetenervoz_Clicked" Margin="0,10,0,0" Text="Detener"
+                        BackgroundColor="#AF00D8"
+                        TextColor="White"
+                         BorderWidth="1"
+                        BorderColor="White"
+                        FontAttributes="Bold"
+                        FontSize="Caption"
+                        HeightRequest="40"
+                        CornerRadius="9"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Margin="20,30,20,30">
+                <Button x:Name="btnGuardar" Clicked="btnGuardar_Clicked"  Text="Guardar Sitio"
+                        BackgroundColor="#AF00D8"
+                        TextColor="White"
+                         BorderWidth="2"
+                        BorderColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        FontSize="Caption"/>
+
+                <Button IsVisible="False" x:Name="btnubicaciones" Clicked="btnUbicaciones_Clicked"  Text="Ubicaciones Salvadas"
+                        BackgroundColor="#AF00D8"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="Caption"
+                        HeightRequest="40"
+                        CornerRadius="40"/>
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
